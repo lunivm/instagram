@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Instagram</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Instagram</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-  </head>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+<div class="text-center">
+  <% if notice %>
+    <p class="notice text-success"><%= notice %></p>
+  <% elsif alert %>
+    <p class="alert text-danger"><%= alert %></p>
+  <% end %>
+</div>
+
+<%= yield %>
+</body>
 </html>
