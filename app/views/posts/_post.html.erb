@@ -29,4 +29,11 @@
     <%= post.show_likes_count %>
   </p>
 
+  <div>
+    <strong>Photos:</strong>
+    <% post.photos.each do |photo| %>
+      <div><%= image_tag photo, width: 300 %></div>
+    <% end %>
+  </div>
+
 </div>
