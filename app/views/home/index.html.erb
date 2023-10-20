@@ -1,16 +1,5 @@
-<div class="container d-flex justify-content-center mt-5">
-  <div class="card" style="width: 25rem;">
-    <%= image_tag 'logo', class: 'm-3' %>
-    <div class="card-body">
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Phone number, username or Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="email">
-      </div>
-      <div class="mb-3">
-        <label for="exampleFormControlPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleFormControlPassword1" placeholder="password"></input>
-      </div>
-      <button type="button" class="btn btn-primary">Submit</button>
-    </div>
-  </div>
-</div>
+Hello home
+
+<% if current_user %>
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+<% end %>
