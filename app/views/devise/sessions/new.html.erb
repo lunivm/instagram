@@ -1,6 +1,7 @@
-<div class="container d-flex justify-content-center mt-5">
+<div class="container d-flex align-items-center mt-5 flex-column">
   <div class="card" style="width: 25rem;">
     <%= image_tag 'logo', class: 'm-3' %>
+    <h2 class="text-center">Sign In</h2>
     <div class="card-body">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="mb-3">
@@ -11,6 +12,15 @@
         </div>
         <%= f.submit "Submit", class: "btn btn-primary w-100"%>
       <% end %>
+      <div class="m-4 text-center">
+        <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+      </div>
+    </div>
+  </div>
+
+  <div class="card mt-4" style="width: 25rem;">
+    <div class="card-body">
+      Don't have an account? <%= link_to "Sign up", new_registration_path(resource_name) %><br />
     </div>
   </div>
 </div>
