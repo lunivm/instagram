@@ -1,6 +1,6 @@
 
-<div id="<%= dom_id post %>" class="card text-center">
-  <div class="card-header text-start">
+<div id="<%= dom_id post %>" class="card">
+  <div class="card-header">
     <div class="d-flex justify-content-between">
       <div>
         <% if post.user.avatar.attached? %>
@@ -50,12 +50,14 @@
   </div>
 
   <div class="card-body">
-    <p>
-      <%= post.caption %>
-    </p>
+    <div class="card-text">
+      <p><span class="fw-bold"><%= post.user.username %></span> <%= post.caption %></p>
+      <small class="text-muted"><%= time_ago_in_words post.created_at %></small>
+    </div>
   </div>
 
-  <div class="card-footer">
-    This is a footer
+  <div class="card-footer d-flex justify-content-between">
+    <input class="form-control" type="text" placeholder="Add a comment..." />
+    <a class="btn btn-primary ms-2">Post</a>
   </div>
 </div>
