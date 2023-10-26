@@ -1,40 +1,52 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <strong>Caption:</strong>
-    <%= post.caption %>
-  </p>
 
-  <p>
-    <strong>Longitutde:</strong>
-    <%= post.longitutde %>
-  </p>
-
-  <p>
-    <strong>Latitude:</strong>
-    <%= post.latitude %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= post.user_id %>
-  </p>
-
-  <p>
-    <strong>Allow comments:</strong>
-    <%= post.allow_comments %>
-  </p>
-
-  <p>
-    <strong>Show likes count:</strong>
-    <%= post.show_likes_count %>
-  </p>
-
-  <div>
-    <strong>Images:</strong>
-    <%- post.images.each do |image| %>
-      <div> <%= image_tag image %> </div>
-<!--      <div> <%#= link_to image.filename, image %> </div>-->
-    <% end %>
+<div id="<%= dom_id post %>" class="card text-center">
+  <div class="card-header">
+    <%= post.user.username %>
   </div>
+
+  <div class="card-img-top"> <%= image_tag post.images.last, class: 'w-100' %> </div>
+
+  <div class="card-body">
+    <p>
+      <strong>Caption:</strong>
+      <%= post.caption %>
+    </p>
+
+    <p>
+      <strong>Longitutde:</strong>
+      <%= post.longitutde %>
+    </p>
+
+    <p>
+      <strong>Latitude:</strong>
+      <%= post.latitude %>
+    </p>
+
+    <p>
+      <strong>User:</strong>
+      <%= post.user_id %>
+    </p>
+
+    <p>
+      <strong>Allow comments:</strong>
+      <%= post.allow_comments %>
+    </p>
+
+    <p>
+      <strong>Show likes count:</strong>
+      <%= post.show_likes_count %>
+    </p>
+  </div>
+  <div class="card-footer">
+    This is a footer
+  </div>
+
+  <!--  <div>-->
+<!--    <strong>Images:</strong>-->
+    <%#- post.images.each do |image| %>
+<!--      <div> <%#= image_tag image %> </div>-->
+<!--      <div> <%#= link_to image.filename, image %> </div>-->
+    <%# end %>
+<!--  </div>-->
 
 </div>
