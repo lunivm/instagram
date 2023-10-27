@@ -3,11 +3,7 @@
   <div class="card-header">
     <div class="d-flex justify-content-between">
       <div>
-        <% if post.user.avatar.attached? %>
-          <%= image_tag post.user.avatar, class: "img-thumbnail rounded-circle" %>
-        <% else %>
-          <%= image_tag 'icons/blank-user.jpg', class: "img-thumbnail rounded-circle blank-user" %>
-        <% end %>
+        <%= render "user/avatar", user: post.user %>
         <span class="d-inline-block ms-2">
           <%= post.user.username %>
         </span>
