@@ -14,6 +14,7 @@
   <body>
     <%= render 'layouts/navbar' %>
     <div class="container">
+      <%= render 'story/stories_list' %>
       <% if notice %>
         <div class="alert alert-success alert-dismissible" role="alert"><%= notice %><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
       <% elsif alert %>
