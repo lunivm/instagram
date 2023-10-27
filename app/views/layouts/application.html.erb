@@ -12,24 +12,12 @@
   </head>
 
   <body>
-    <%= render 'layouts/navbar' %>
-    <div class="container mt-4">
-      <div class="d-flex">
-        <div>
-          <%= render 'story/stories_list' %>
-          <% if notice %>
-            <div class="alert alert-success alert-dismissible" role="alert"><%= notice %><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
-          <% elsif alert %>
-            <div class="alert alert-danger alert-dismissible" role="alert"><%= alert %><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
-          <% end %>
+    <% if current_user %>
+      <%= render 'layouts/navbar' %>
+    <% end %>
 
-          <%= yield %>
-        </div>
-
-        <div class="ms-5">
-          <%= render 'suggestions/suggestions_list' %>
-        </div>
-      </div>
+    <div class="container <%= devise_controller? ? 'auth-container' : '' %>">
+      <%= yield %>
     </div>
   </body>
 </html>
