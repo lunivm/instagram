@@ -13,15 +13,23 @@
 
   <body>
     <%= render 'layouts/navbar' %>
-    <div class="container">
-      <%= render 'story/stories_list' %>
-      <% if notice %>
-        <div class="alert alert-success alert-dismissible" role="alert"><%= notice %><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
-      <% elsif alert %>
-        <div class="alert alert-danger alert-dismissible" role="alert"><%= alert %><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
-      <% end %>
+    <div class="container mt-4">
+      <div class="d-flex">
+        <div>
+          <%= render 'story/stories_list' %>
+          <% if notice %>
+            <div class="alert alert-success alert-dismissible" role="alert"><%= notice %><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+          <% elsif alert %>
+            <div class="alert alert-danger alert-dismissible" role="alert"><%= alert %><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+          <% end %>
 
-      <%= yield %>
+          <%= yield %>
+        </div>
+
+        <div class="ms-5">
+          <%= render 'suggestions/suggestions_list' %>
+        </div>
+      </div>
     </div>
   </body>
 </html>
