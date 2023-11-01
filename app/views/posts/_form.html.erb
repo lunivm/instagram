@@ -1,47 +1,67 @@
-<%= form_with(model: post) do |form| %>
-  <% if post.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<div class="modal fade" id="post-modal" tabindex="-1" aria-labelledby="post modal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header py-1">
+        <button class="btn me-1" data-bs-dismiss="modal" aria-label="Close"><%= svg_icon 'arrow-left' %></button>
+        <h1 class="modal-title fs-5 mx-auto">Create new post</h1>
+        <%= link_to 'Share', '', class: 'ms-1 text-decoration-none' %>
+      </div>
 
-      <ul>
-        <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+      <div class="modal-body">
+        <%= form_with(model: post, class: 'd-flex') do |form| %>
+          <% if post.errors.any? %>
+            <div style="color: red">
+              <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+              <ul>
+                <% post.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="w-50 border-end border-2">
+            <div>
+              <%= form.label :images%>
+              <%= form.file_field :images, multiple: true %>
+            </div>
+          </div>
+
+          <div class="w-50 mx-4">
+            <div class="mb-2">
+              <%= render "user/avatar", user: current_user %>
+              <span class="fw-bold ms-2"><%= current_user.username %></span>
+            </div>
+
+            <div class="mb-2">
+              <%= form.text_area :caption, rows: 7, placeholder: 'Write a caption...', class: 'form-control border-none' %>
+            </div>
+
+            <div class="mb-2">
+              <%= form.text_field :location, class: 'form-control', placeholder: 'Add location' %>
+            </div>
+
+            <div class="form-check">
+              <%= form.check_box :allow_comments, class: 'form-check-input' %>
+              <%= form.label :allow_comments, class: 'form-check-label' %>
+            </div>
+
+            <div class="form-check">
+              <%= form.check_box :show_likes_count, class: 'form-check-input'  %>
+              <%= form.label :show_likes_count, class: 'form-check-label' %>
+            </div>
+          </div>
+<!--          <div>-->
+            <%#= form.label :latitude, style: "display: block" %>
+            <%#= form.text_field :latitude %>
+<!--          </div>-->
+
+<!--          <div>-->
+            <%#= form.submit %>
+<!--          </div>-->
         <% end %>
-      </ul>
+      </div>
     </div>
-  <% end %>
-
-  <div>
-    <%= form.label :caption, style: "display: block" %>
-    <%= form.text_field :caption %>
   </div>
-
-  <div>
-    <%= form.label :longitutde, style: "display: block" %>
-    <%= form.text_field :longitutde %>
-  </div>
-
-  <div>
-    <%= form.label :latitude, style: "display: block" %>
-    <%= form.text_field :latitude %>
-  </div>
-
-  <div>
-    <%= form.label :allow_comments, style: "display: block" %>
-    <%= form.check_box :allow_comments %>
-  </div>
-
-  <div>
-    <%= form.label :show_likes_count, style: "display: block" %>
-    <%= form.check_box :show_likes_count %>
-  </div>
-
-  <div>
-    <%= form.label :images, style: "display: block" %>
-    <%= form.file_field :images, multiple: true %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

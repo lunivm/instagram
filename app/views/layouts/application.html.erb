@@ -19,5 +19,7 @@
     <div class="container <%= devise_controller? ? 'auth-container' : '' %>">
       <%= yield %>
     </div>
+
+    <%=render "posts/form", post: Post.new %>
   </body>
 </html>

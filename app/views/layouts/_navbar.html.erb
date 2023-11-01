@@ -9,18 +9,18 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       </ul>
-      <form class="d-flex" role="search">
+      <form class="d-flex me-4" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
       <div>
-        <%= link_to root_path, class: 'text-dark text-decoration-none ms-2' do %>
+        <%= link_to root_path, class: 'text-dark text-decoration-none me-2' do %>
           <%= svg_icon 'house', class: 'fs-2' %>
         <% end %>
 
-        <%= link_to new_post_path, class: 'text-dark text-decoration-none ms-2' do %>
+        <button class='text-dark text-decoration-none me-2 border-0 bg-transparent' data-bs-toggle="modal" data-bs-target="#post-modal">
           <%= svg_icon 'plus-square', class: 'fs-2 text-dark' %>
-        <% end %>
+        </button>
 
         <span class="dropdown">
           <a type="button" class="ms-2" data-bs-toggle="dropdown" aria-expanded="false">
@@ -37,4 +37,3 @@
     </div>
   </div>
 </nav>
-<%= %>
