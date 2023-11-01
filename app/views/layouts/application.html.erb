@@ -11,7 +11,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="<%= "#{controller.controller_name}-page" %>">
     <% if current_user %>
       <%= render 'layouts/navbar' %>
     <% end %>

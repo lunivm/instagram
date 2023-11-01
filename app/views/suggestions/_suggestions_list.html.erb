@@ -1,6 +1,8 @@
-<div class="text-nowrap d-flex fw-bold">
-  <p class="text-muted">Suggestions for you</p>
-  <%= link_to 'See all', root_path, class: 'text-decoration-none text-dark' %>
-</div>
+<div class="suggestion-list-container">
+  <div class="text-nowrap d-flex fw-bold justify-content-between">
+    <p class="text-muted">Suggestions for you</p>
+    <%= link_to 'See all', root_path, class: 'text-decoration-none text-dark' %>
+  </div>
 
-<%= render 'suggestions/suggestion' %>
+  <%= render 'suggestions/suggestion' %>
+</div>

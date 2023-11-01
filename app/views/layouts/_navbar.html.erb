@@ -14,12 +14,25 @@
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
       <div>
-        <%= link_to root_path, class: 'text-dark text-decoration-none' do %>
+        <%= link_to root_path, class: 'text-dark text-decoration-none ms-2' do %>
           <%= svg_icon 'house', class: 'fs-2' %>
         <% end %>
-        <%= link_to new_post_path, class: 'text-dark text-decoration-none' do %>
+
+        <%= link_to new_post_path, class: 'text-dark text-decoration-none ms-2' do %>
           <%= svg_icon 'plus-square', class: 'fs-2 text-dark' %>
         <% end %>
+
+        <span class="dropdown">
+          <a type="button" class="ms-2" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= render "user/avatar", user: current_user %>
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+              <%= button_to "Sign out", destroy_user_session_path,  class: 'dropdown-item', method: :delete %>
+            </li>
+          </ul>
+        </span>
       </div>
     </div>
   </div>
