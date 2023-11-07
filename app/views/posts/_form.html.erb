@@ -4,7 +4,7 @@
       <div class="modal-header py-1">
         <button class="btn me-1" data-bs-dismiss="modal" aria-label="Close"><%= svg_icon 'arrow-left' %></button>
         <h1 class="modal-title fs-5 mx-auto">Create new post</h1>
-        <%= link_to 'Share', '', class: 'ms-1 text-decoration-none' %>
+        <%= link_to 'Share', '', class: 'ms-1 text-decoration-none me-2' %>
       </div>
 
       <div class="modal-body">
@@ -21,14 +21,14 @@
             </div>
           <% end %>
 
-          <div class="w-50 border-end border-2">
+          <div class="w-50 border-end border-2 pe-4 ps-2">
             <div>
               <%= form.label :images%>
-              <%= form.file_field :images, multiple: true %>
+              <%= form.file_field :images, multiple: true, data: { controller: 'filepond' } %>
             </div>
           </div>
 
-          <div class="w-50 mx-4">
+          <div class="w-50 me-2 ms-4">
             <div class="mb-2">
               <%= render "user/avatar", user: current_user %>
               <span class="fw-bold ms-2"><%= current_user.username %></span>
