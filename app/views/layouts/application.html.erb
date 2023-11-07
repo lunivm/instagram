@@ -20,6 +20,8 @@
       <%= yield %>
     </div>
 
-    <%=render "posts/form", post: Post.new %>
+    <% if !devise_controller? %>
+      <%=render "posts/form", post: Post.new %>
+    <% end %>
   </body>
 </html>
