@@ -7,6 +7,16 @@ class LikesController < ApplicationController
     else
       @post.likes.create(user: current_user)
     end
+
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace(
+          helpers.dom_id(@post, 'actions_frame'),
+          partial: "posts/post_actions",
+          locals: { post: @post }
+        )
+      end
+    end
   end
 
   private

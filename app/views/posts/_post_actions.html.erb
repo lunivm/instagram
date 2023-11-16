@@ -1,6 +1,8 @@
-<div>
-  <%= button_to toggle_like_path(post_id: post.id), class: 'border-0 bg-transparent' do %>
-    <%= post.likes.find_by(user: current_user) ? svg_icon('heart-fill') : svg_icon(:heart) %>
-  <% end %>
-  <div class="fw-bold mt-2"><%= pluralize post.likes.count, 'like' %></div>
+<div id=<%= dom_id(post, 'actions_frame')%>>
+  <div>
+    <%= button_to toggle_like_path(post_id: post.id), class: 'border-0 bg-transparent' do %>
+      <%= post.likes.find_by(user: current_user) ? svg_icon('heart-fill') : svg_icon(:heart) %>
+    <% end %>
+    <div class="fw-bold mt-2"><%= pluralize post.likes.count, 'like' %></div>
+  </div>
 </div>
