@@ -1,8 +1,26 @@
+<% modal_id = dom_id post, 'liker_modal' %>
+
 <div id=<%= dom_id(post, 'actions_frame')%>>
   <div>
     <%= button_to toggle_like_path(post_id: post.id), class: 'border-0 bg-transparent' do %>
       <%= post.likes.find_by(user: current_user) ? svg_icon('heart-fill') : svg_icon(:heart) %>
     <% end %>
-    <div class="fw-bold mt-2"><%= pluralize post.likes.count, 'like' %></div>
+    <a data-bs-toggle="modal" data-bs-target="#<%= modal_id %>" class="fw-bold mt-2"><%= pluralize post.likes.count, 'like' %></a>
+  </div>
+
+  <div class="modal fade" id="<%= modal_id %>" tabindex="-1" aria-labelledby="likerModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Likes</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <% post.likers.each do |liker| %>
+            <%= render "posts/liker", liker: liker %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
