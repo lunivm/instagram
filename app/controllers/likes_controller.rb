@@ -7,7 +7,6 @@ class LikesController < ApplicationController
     else
       @post.likes.create(user: current_user)
     end
-
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: turbo_stream.replace(

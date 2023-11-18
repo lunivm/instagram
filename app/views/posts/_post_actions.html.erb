@@ -2,10 +2,10 @@
 
 <div id=<%= dom_id(post, 'actions_frame')%>>
   <div>
-    <%= button_to toggle_like_path(post_id: post.id), class: 'border-0 bg-transparent' do %>
+    <%= button_to toggle_like_path(post_id: post.id), class: 'border-0 bg-transparent fs-3' do %>
       <%= post.likes.find_by(user: current_user) ? svg_icon('heart-fill') : svg_icon(:heart) %>
     <% end %>
-    <a data-bs-toggle="modal" data-bs-target="#<%= modal_id %>" class="fw-bold mt-2"><%= pluralize post.likes.count, 'like' %></a>
+    <a data-bs-toggle="modal" href="javascript:void(0)" data-bs-target="#<%= modal_id %>" class="fw-bold mt-2 text-decoration-none text-dark"><%= pluralize post.likes.count, 'like' %></a>
   </div>
 
   <div class="modal fade" id="<%= modal_id %>" tabindex="-1" aria-labelledby="likerModal" aria-hidden="true">
