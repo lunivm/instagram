@@ -11,7 +11,7 @@ class LikesController < ApplicationController
       format.turbo_stream do
         render turbo_stream: turbo_stream.replace(
           helpers.dom_id(@post, 'actions_frame'),
-          partial: "posts/post_actions",
+          partial: "posts/actions",
           locals: { post: @post }
         )
       end

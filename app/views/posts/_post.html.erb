@@ -52,20 +52,11 @@
     </div>
 
     <div class="mt-2">
-      <%= render "posts/post_actions", post: post %>
+      <%= render "posts/actions", post: post %>
     </div>
 
     <div class="mt-2">
-      <% last_comment = post.comments.last %>
-      <% comments_count = post.comments.length %>
-
-      <% if last_comment %>
-        <span class="fw-bold me-2"><%= last_comment.user.username %></span><%= last_comment.body %>
-      <% end %>
-
-      <% if comments_count > 1 %>
-        <div class="text-muted mt-2">View all <%= pluralize comments_count, 'comment' %></div>
-      <% end %>
+      <%= render "posts/comments", post: post %>
     </div>
   </div>
 
